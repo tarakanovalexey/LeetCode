@@ -5,6 +5,8 @@ import java.util.Set;
 
 public class Solution {
 
+    /*Given a string s, find the length of the longest substring without repeating characters.*/
+
     public static void main(String[] args) {
         assertion(lengthOfLongestSubstring("abcabcbb"), 3);
         assertion(lengthOfLongestSubstring("bbbbb"), 1);
