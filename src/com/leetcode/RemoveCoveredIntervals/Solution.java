@@ -1,8 +1,6 @@
 package com.leetcode.RemoveCoveredIntervals;
 
-import javafx.util.Pair;
-
-import java.util.*;
+import java.util.HashSet;
 
 public class Solution {
     /*Given an array intervals where intervals[i] = [li, ri] represent the interval [li, ri],
