@@ -42,8 +42,8 @@ public class Solution {
             char c2 = t.charAt(i);
             if(s.lastIndexOf(c1) != t.lastIndexOf(c2))
                 return false;
-        }*/
-        return true;
+        }
+        return true;*/
     }
 
     private static boolean assertion(Object result, Object expectedValue) {
