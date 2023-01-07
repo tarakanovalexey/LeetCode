@@ -33,23 +33,6 @@ public class Solution {
         return result;
     }
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     private static boolean assertion(Object result, Object expectedValue) {
         return result.equals(expectedValue) ? printSuccess(result, expectedValue) : printFailed(result, expectedValue);
     }
