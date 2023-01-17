@@ -10,7 +10,7 @@ public class Solution {
         assertion(backspaceCompare("ab#c", "ad#c"), true);
         assertion(backspaceCompare("ab##", "c#d#"), true);
         assertion(backspaceCompare("a#c", "b"), false);
-        assertion(backspaceCompare("a##c", "#a#c"), false);
+        assertion(backspaceCompare("a##c", "#a#c"), true);
     }
 
     public static boolean backspaceCompare(String s, String t) {
