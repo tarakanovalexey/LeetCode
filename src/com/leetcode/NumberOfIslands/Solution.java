@@ -14,18 +14,76 @@ public class Solution {
     public static void main(String[] args) {
         assertion(numIslands(new char[][]{{'1','1','1','1','0'},{'1','1','0','1','0'},{'1','1','0','0','0'},{'0','0','0','0','0'}}), 1);
         assertion(numIslands(new char[][]{{'1','1','0','0','0'},{'1','1','0','0','0'},{'0','0','1','0','0'},{'0','0','0','1','1'}}), 3);
+        assertion(numIslands(new char[][]{{'1'},{'1'}}), 1);
     }
 
     public static int numIslands(char[][] grid) {
-        ArrayList<Character> list = new ArrayList<>();
-        for (int y = 0; y < grid.length; y++) {
+        int count = 0;
+        for (int y = 0; y < grid[0].length; y++) {
             for (int x = 0; x < grid.length; x++) {
                 if (grid[x][y] == '1') {
-
+                    grid[x][y] = '2';
+                    searchUp(grid, x, y-1);
+                    searchDown(grid, x, y+1);
+                    searchRight(grid, x+1, y);
+                    searchLeft(grid, x-1, y);
+                    count++;
                 }
             }
         }
-        return 1;
+        return count;
+    }
+
+    public static void searchUp(char[][] grid, int x, int y) {
+        if (x < 0 || y < 0 || x >= grid.length || y >= grid[0].length) {
+            return;
+        }
+        if (grid[x][y] == '1') {
+            grid[x][y] = '2';
+            searchUp(grid, x, y-1);
+            searchDown(grid, x, y+1);
+            searchRight(grid, x+1, y);
+            searchLeft(grid, x-1, y);
+        }
+    }
+
+    public static void searchDown(char[][] grid, int x, int y) {
+        if (x < 0 || y < 0 || x >= grid.length || y >= grid[0].length) {
+            return;
+        }
+        if (grid[x][y] == '1') {
+            grid[x][y] = '2';
+            searchUp(grid, x, y-1);
+            searchDown(grid, x, y+1);
+            searchRight(grid, x+1, y);
+            searchLeft(grid, x-1, y);
+        }
+    }
+
+    public static void searchRight(char[][] grid, int x, int y) {
+        if (x < 0 || y < 0 || x >= grid.length || y >= grid[0].length) {
+            return;
+        }
+        if (grid[x][y] == '1') {
+            grid[x][y] = '2';
+            searchUp(grid, x, y-1);
+            searchDown(grid, x, y+1);
+            searchRight(grid, x+1, y);
+            searchLeft(grid, x-1, y);
+        }
+    }
+
+    public static void searchLeft(char[][] grid, int x, int y) {
+        if (x < 0 || y < 0 || x >= grid.length || y >= grid[0].length) {
+            return;
+        }
+        if (grid[x][y] == '1') {
+            grid[x][y] = '2';
+            searchUp(grid, x, y-1);
+            searchDown(grid, x, y+1);
+            searchRight(grid, x+1, y);
+            searchLeft(grid, x-1, y);
+        }
     }
 
     private static boolean assertion(Object result, Object expectedValue) {
