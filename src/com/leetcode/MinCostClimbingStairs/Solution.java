@@ -16,20 +16,20 @@ public class Solution {
     public static void main(String[] args) {
         assertion(minCostClimbingStairs(new int[]{10,15,20}), 15);
         assertion(minCostClimbingStairs(new int[]{1,15,1}), 2);
-        assertion(minCostClimbingStairs(new int[]{1,100,1,1,1,100,1,1,100,1}), 6);
+        assertion(minCostClimbingStairs(new int[]{1,100,1,1,1,100,1,1,100,1,0}), 6);
         assertion(minCostClimbingStairs(new int[]{10, 1}), 1);
         assertion(minCostClimbingStairs(new int[]{1, 10}), 1);
         assertion(minCostClimbingStairs(new int[]{0, 1, 2, 1}), 2);
         assertion(minCostClimbingStairs(new int[]{0, 1, 2, 2}), 2);
+        assertion(minCostClimbingStairs(new int[]{1, 0, 0, 1}), 0);
+        assertion(minCostClimbingStairs(new int[]{1, 0, 2, 2}), 2);
     }
 
     public static int minCostClimbingStairs(int[] cost) {
-        boolean canSkip = true;
-        int result = 0;
-        for (int i = 0; i < cost.length; i++) {
-            result += cost[i];
+        for (int i = cost.length - 3; i >= 0; i--) {
+            cost[i] += Math.min(cost[i + 1], cost[i + 2]);
         }
-        return result;
+        return Math.min(cost[0], cost[1]);
     }
 
     private static boolean assertion(Object result, Object expectedValue) {
